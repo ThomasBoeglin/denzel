@@ -5,6 +5,75 @@
 ![denzel](https://m.media-amazon.com/images/M/MV5BMjE5NDU2Mzc3MV5BMl5BanBnXkFtZTcwNjAwNTE5OQ@@._V1_SY1000_SX750_AL_.jpg)
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
+# Make it work: 
+I you use windows, please install Insomnia for all the curl queries.
+
+First, let's start populating the the database with : 
+curl -H "Accept: application/json" http://localhost:9292/movies/populate
+
+then you can try : 
+Fetching a random movie.
+curl -H "Accept: application/json" http://localhost:9292/movies
+
+Fetching a specific movie.
+curl -H "Accept: application/json" http://localhost:9292/movies/tt0477080
+
+Search for Denzel's movies.
+curl -H "Accept: application/json" http://localhost:9292/movies/search?limit=5&metascore=77
+
+Save a watched date and a review.
+ curl -X POST -d '{"date": "2019-03-04", "review": "😍 🔥"}' -H "Content-Type: application/json" http://localhost:9292/movies/tt0328107
+
+#GraphQl Endpoint:
+
+go to the web browser and go to :
+http://localhost:9292/graphql
+
+Here's the command you can try :
+{
+saveDateAndReview(id:"tt0477080", date:"2019-03-04", review:"cool!")
+  {
+    
+    title,
+    review,
+    date
+    
+  }
+  
+}
+
+{
+SearchingMovieName(title:"Unstoppable (2010)")
+  {
+    title
+  }
+}
+
+{
+SearchinMovieID(id:"tt0477080")
+  {
+    title
+  }
+}
+{
+searchingMovieMetascoreAndLimit(metascore:77,limit:5 )
+  {
+    arrayMovie
+  }
+  
+}
+
+{
+  populateMovies
+}
+
+{
+  randomMustWatch
+  {
+    title
+  }
+}
+
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**
 

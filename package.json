@@ -3,8 +3,15 @@
   "version": "0.0.1",
   "description": "The must-watch Denzel's movies",
   "dependencies": {
+    "body-parser": "^1.18.3",
     "cheerio": "^1.0.0-rc.2",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "express-graphql": "^0.7.1",
+    "graphql": "^14.1.1",
+    "mongodb": "^3.1.13",
     "node-fetch": "^2.3.0",
+    "nodemon": "^1.18.10",
     "p-limit": "^2.2.0",
     "p-settle": "^2.1.0"
   }
